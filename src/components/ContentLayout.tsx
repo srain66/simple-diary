@@ -7,9 +7,9 @@ interface IProps {
 
 export default function ContentLayout({ children }: IProps) {
   return (
-    <main className="min-h-screen w-full max-w-3xl my-0 mx-auto">
+    <main className="min-h-screen w-full max-w-lg my-0 mx-auto">
       <Header />
-      <div className="p-2">{children}</div>
+      <div>{children}</div>
     </main>
   );
 }

@@ -1,10 +1,10 @@
 "use client";
 
-import { Dancing_Script } from "next/font/google";
+import { Reenie_Beanie } from "next/font/google";
 import { useState } from "react";
 import { IoSettingsOutline, IoSettings } from "react-icons/io5";
 
-const dancingScript = Dancing_Script({ subsets: ["latin"] });
+const reenieBeanie = Reenie_Beanie({ weight: ["400"], subsets: ["latin"] });
 
 interface IProps {}
 
@@ -14,8 +14,11 @@ export default function Header({}: IProps) {
   const handleMouseLeave = () => setHover(false);
 
   return (
-    <header className="w-full h-12 flex justify-center items-center p-4 relative border-b">
-      <h1 className={`${dancingScript.className} text-2xl align-center`}>
+    <header className="w-full h-12 flex justify-start items-center p-4 relative border-b">
+      <h1
+        className={`${reenieBeanie.className} text-3xl text-white bg-blue-700 py-1 px-3`}
+        style={{ transform: "translate(-20%, 0) rotate(-12deg)" }}
+      >
         Simple Diary
       </h1>
       <button
