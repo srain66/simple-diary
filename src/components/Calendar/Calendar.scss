@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700&family=Righteous&display=swap");
+
+@mixin righteous {
+  font-family: "Righteous", cursive;
+}
+
+@mixin karla {
+  font-family: "Karla", sans-serif;
+}
+
+.react-datepicker__month-container {
+  @include karla;
+}
+
+.react-datepicker__day-names,
+.react-datepicker__week {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.5rem 2rem;
+}
+
+.react-datepicker__day-names {
+  @include righteous;
+  font-weight: 700;
+}
+
+.react-datepicker__day-name,
+.react-datepicker__day {
+  width: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.react-datepicker__day-name {
+  height: 1.5rem;
+}
+
+// .react-datepicker__week {}
+
+.react-datepicker__day {
+  height: 2rem;
+  cursor: pointer;
+  border-radius: 100%;
+}
+
+.react-datepicker__day--weekend {
+  color: red;
+}
+
+.react-datepicker__day--outside-month {
+  opacity: 0.3;
+}
+
+.react-datepicker__day--selected {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.react-datepicker__triangle,
+.react-datepicker__aria-live {
+  display: none;
+}
