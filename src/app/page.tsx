@@ -1,4 +1,6 @@
 import Calendar from "@/components/Calendar";
+import NoDiary from "@/components/NoDiary";
+
 import DateContextProvider from "@/provider/DateContextProvider";
 
 export default function Home() {
@@ -7,6 +9,7 @@ export default function Home() {
       <div className="border-b pb-4">
         <Calendar />
       </div>
+      <NoDiary />
     </DateContextProvider>
   );
 }
