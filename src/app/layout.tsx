@@ -1,9 +1,9 @@
 import ContentLayout from "@/components/ContentLayout";
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Orbit } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const orbit = Orbit({ weight: ["400"], subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Simple Diary",
@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={orbit.className}>
         <ContentLayout>{children}</ContentLayout>
       </body>
     </html>
