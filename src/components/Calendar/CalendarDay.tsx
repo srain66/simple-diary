@@ -7,5 +7,9 @@ interface IProps {
 const karla = Karla({ weight: ["400"], subsets: ["latin"] });
 
 export default function CalendarDay({ day }: IProps): JSX.Element {
-  return <p className={`${karla.className}`}>{day}</p>;
+  return (
+    <>
+      <p className={`${karla.className}`}>{day}</p>
+    </>
+  );
 }
