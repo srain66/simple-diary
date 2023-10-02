@@ -1,24 +1,40 @@
+"use client";
+
 import { Diary } from "@/types/diary";
 import { Righteous } from "next/font/google";
-import { ChangeEvent, useState } from "react";
-import cls from "classnames";
+import { ChangeEvent, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { useSetRecoilState } from "recoil";
+import { diarySelector } from "@/store/diary";
+import cls from "classnames";
 
 interface IProps {
   diary: Diary;
 }
+
 const righteous = Righteous({ weight: ["400"], subsets: ["latin"] });
 
 export default function DiaryForm({ diary }: IProps) {
   const router = useRouter();
   const [text, setText] = useState<string>(diary.text);
+  const setDiary = useSetRecoilState(diarySelector(diary.key));
+  const [active, setActive] = useState<boolean>(false);
 
   const handleChange = (value: string) => setText(value);
 
   const handleClick = () => {
-    console.log(text);
-    router.push("/");
+    const newDiary = {
+      ...diary,
+      text,
+    };
+
+    setDiary(newDiary);
+    router.push(`/?key=${diary.key}`);
   };
+
+  useEffect(() => {
+    setActive(text ? true : false);
+  }, [text]);
 
   return (
     <div className="flex flex-col gap-3">
@@ -26,11 +42,11 @@ export default function DiaryForm({ diary }: IProps) {
         <h3 className={`${righteous.className} text-3xl`}>{diary.key}</h3>
         <button
           className={cls(
-            "flex-none ml-auto p-2 rounded bg-blue-500 text-white flex justify-center items-center",
-            !text && "bg-gray-300"
+            "flex-none ml-auto p-2 rounded text-white flex justify-center items-center",
+            active ? "bg-blue-500 hover:bg-blue-500" : "bg-gray-300"
           )}
           onClick={handleClick}
-          disabled={!text}
+          disabled={!active}
         >
           저장
         </button>

@@ -1,32 +1,30 @@
 "use client";
 
-import DiaryForm from "@/components/DiaryForm";
-import { Diary } from "@/types/diary";
 import moment from "moment";
+import DiaryForm from "@/components/DiaryForm";
+import { diarySelector } from "@/store/diary";
+import { Diary } from "@/types/diary";
+import { getDateByKey } from "@/utils/getKeyByDate";
 import { useSearchParams } from "next/navigation";
-import { Suspense, useEffect, useState } from "react";
+import { useRecoilValue } from "recoil";
 
 export default function Write() {
   const searchParams = useSearchParams();
   const key = searchParams.get("key") ?? moment(new Date()).format("YYYYMMDD");
-  const [diary, setDiary] = useState<Diary>(null!);
-
-  useEffect(() => {
-    const diaries: Diary[] = JSON.parse(
-      localStorage.getItem("diaries") ?? "[]"
-    );
-
-    const currentDiary: Diary = diaries.find(
-      (item: Diary) => item.key === key
-    ) ?? {
-      key,
-      text: "",
-    };
-
-    setDiary(currentDiary);
-  }, [key]);
+  const savedDiary = useRecoilValue(diarySelector(key));
 
   return (
-    <div className="p-4">{diary ? <DiaryForm diary={diary} /> : <></>}</div>
+    <div className="p-4">
+      <DiaryForm
+        diary={
+          savedDiary ??
+          ({
+            key,
+            text: "",
+            date: getDateByKey(key),
+          } as Diary)
+        }
+      />
+    </div>
   );
 }

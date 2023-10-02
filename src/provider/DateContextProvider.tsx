@@ -1,7 +1,7 @@
 "use client";
 
 import { DateDispatchContext, DateStateContext } from "@/contexts/dateContext";
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useState } from "react";
 
 interface IProps {
   children: ReactNode;

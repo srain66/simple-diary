@@ -2,6 +2,7 @@ import ContentLayout from "@/components/ContentLayout";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Orbit } from "next/font/google";
+import UtilLayout from "@/components/UtilLayout";
 
 const orbit = Orbit({ weight: ["400"], subsets: ["latin"] });
 
@@ -18,7 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={orbit.className}>
-        <ContentLayout>{children}</ContentLayout>
+        <UtilLayout>
+          <ContentLayout>{children}</ContentLayout>
+        </UtilLayout>
       </body>
     </html>
   );
