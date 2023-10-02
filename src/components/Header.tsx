@@ -1,10 +1,9 @@
 "use client";
 
-import { Reenie_Beanie } from "next/font/google";
+import { reenieBeanie } from "@/utils/font";
+import Link from "next/link";
 import { useState } from "react";
 import { IoSettingsOutline, IoSettings } from "react-icons/io5";
-
-const reenieBeanie = Reenie_Beanie({ weight: ["400"], subsets: ["latin"] });
 
 interface IProps {}
 
@@ -15,12 +14,14 @@ export default function Header({}: IProps) {
 
   return (
     <header className="w-full h-12 flex justify-start items-center p-4 relative border-b">
-      <h1
-        className={`${reenieBeanie.className} text-3xl text-white bg-blue-700 py-1 px-3`}
-        style={{ transform: "translate(-20%, 0) rotate(-12deg)" }}
-      >
-        Simple Diary
-      </h1>
+      <Link href="/">
+        <h1
+          className={`${reenieBeanie.className} text-3xl text-white bg-blue-700 py-1 px-3`}
+          style={{ transform: "translate(-20%, 0) rotate(-12deg)" }}
+        >
+          Simple Diary
+        </h1>
+      </Link>
       <button
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}

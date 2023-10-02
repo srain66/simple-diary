@@ -1,10 +1,8 @@
+import { righteous } from "@/utils/font";
 import moment from "moment";
-import { Righteous } from "next/font/google";
 import { ButtonHTMLAttributes } from "react";
 import { ReactDatePickerCustomHeaderProps } from "react-datepicker";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
-
-const righteous = Righteous({ weight: ["400"], subsets: ["latin"] });
 
 export default function CalendarHeader({
   date,
