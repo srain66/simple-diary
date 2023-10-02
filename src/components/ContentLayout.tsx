@@ -11,15 +11,6 @@ interface IProps {
 }
 
 export default function ContentLayout({ children }: IProps) {
-  const setDiaries = useSetRecoilState(diariesState);
-
-  useEffect(() => {
-    const localDiaries = LocalStorage.getItem("diaries");
-    if (localDiaries) {
-      setDiaries(JSON.parse(localDiaries));
-    }
-  });
-
   return (
     <main className="min-h-screen w-full max-w-lg my-0 mx-auto">
       <Header />

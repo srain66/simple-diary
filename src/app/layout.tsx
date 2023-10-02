@@ -2,7 +2,7 @@ import ContentLayout from "@/components/ContentLayout";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Gowun_Dodum } from "next/font/google";
-import UtilLayout from "@/components/UtilLayout";
+import RootWrapper from "@/components/RootWrapper";
 
 const gowunDodum = Gowun_Dodum({ weight: ["400"], subsets: ["latin"] });
 
@@ -19,9 +19,9 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={gowunDodum.className}>
-        <UtilLayout>
+        <RootWrapper>
           <ContentLayout>{children}</ContentLayout>
-        </UtilLayout>
+        </RootWrapper>
       </body>
     </html>
   );

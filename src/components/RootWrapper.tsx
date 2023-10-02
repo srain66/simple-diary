@@ -7,6 +7,6 @@ interface IProps {
   children: ReactNode;
 }
 
-export default function UtilLayout({ children }: IProps) {
+export default function RootWrapper({ children }: IProps) {
   return <RecoilRoot>{children}</RecoilRoot>;
 }

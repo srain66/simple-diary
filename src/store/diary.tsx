@@ -1,10 +1,16 @@
 import { Diary } from "@/types/diary";
+import LocalStorage from "@/utils/localStorage";
 import localStorageEffect from "@/utils/localStorageEffect";
 import { atom, selectorFamily } from "recoil";
 
+const getDefaultDiaries = () => {
+  const store = LocalStorage.getItem("Diaries");
+  return store ? (JSON.parse(store) as Diary[]) : [];
+};
+
 export const diariesState = atom<Diary[]>({
   key: "diariesState",
-  default: [],
+  default: getDefaultDiaries(),
   effects_UNSTABLE: [localStorageEffect<Diary[]>("Diaries")],
 });
 

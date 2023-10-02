@@ -25,7 +25,9 @@ export default function Calendar({}: IProps) {
       renderCustomHeader={(props: ReactDatePickerCustomHeaderProps) => (
         <CalendarHeader {...props} />
       )}
-      renderDayContents={(day: number) => <CalendarDay day={day} />}
+      renderDayContents={(day: number, date: Date) => (
+        <CalendarDay day={day} date={date} />
+      )}
       inline
     />
   );
