@@ -1,5 +1,4 @@
 import {
-  Gowun_Dodum,
   IBM_Plex_Sans_KR,
   Karla,
   Reenie_Beanie,

@@ -8,7 +8,6 @@ import NoDiary from "./NoDiary";
 import { useEffect, useState } from "react";
 import { Diary } from "@/types/diary";
 import moment from "moment";
-import { ibmPlexSansKr, karla } from "@/utils/font";
 import { BiEditAlt, BiTrash } from "react-icons/bi";
 import ToolButton from "./ToolButton";
 import { useRouter } from "next/navigation";

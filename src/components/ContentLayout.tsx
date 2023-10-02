@@ -1,10 +1,7 @@
 "use client";
 
-import { ReactNode, useEffect } from "react";
+import { ReactNode } from "react";
 import Header from "./Header";
-import { useSetRecoilState } from "recoil";
-import { diariesState } from "@/store/diary";
-import LocalStorage from "@/utils/localStorage";
 
 interface IProps {
   children: ReactNode;
