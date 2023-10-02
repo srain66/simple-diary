@@ -1,11 +1,9 @@
 "use client";
 
-import { Reenie_Beanie } from "next/font/google";
+import { reenieBeanie } from "@/utils/font";
 import Link from "next/link";
 import { useState } from "react";
 import { IoSettingsOutline, IoSettings } from "react-icons/io5";
-
-const reenieBeanie = Reenie_Beanie({ weight: ["400"], subsets: ["latin"] });
 
 interface IProps {}
 

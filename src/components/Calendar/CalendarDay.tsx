@@ -3,21 +3,20 @@
 import { diarySelector } from "@/store/diary";
 import { Diary } from "@/types/diary";
 import { getKeyByDate } from "@/utils/getKeyByDate";
-import { Karla } from "next/font/google";
-import { Suspense, useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
 import cls from "classnames";
+import { karla } from "@/utils/font";
 
 interface IProps {
   day: number;
   date: Date;
 }
 
-const karla = Karla({ weight: ["400"], subsets: ["latin"] });
-
 export default function CalendarDay({ day, date }: IProps): JSX.Element {
   const diary = useRecoilValue<Diary>(diarySelector(getKeyByDate(date)));
   const [isWritten, setIsWritten] = useState<boolean>(false);
+
   useEffect(() => {
     setIsWritten(!!diary);
   }, [diary]);

@@ -1,18 +1,16 @@
 "use client";
 
 import { Diary } from "@/types/diary";
-import { Righteous } from "next/font/google";
 import { ChangeEvent, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useSetRecoilState } from "recoil";
 import { diarySelector } from "@/store/diary";
 import cls from "classnames";
+import { righteous } from "@/utils/font";
 
 interface IProps {
   diary: Diary;
 }
-
-const righteous = Righteous({ weight: ["400"], subsets: ["latin"] });
 
 export default function DiaryForm({ diary }: IProps) {
   const router = useRouter();

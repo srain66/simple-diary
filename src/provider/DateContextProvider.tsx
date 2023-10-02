@@ -5,10 +5,11 @@ import { ReactNode, useState } from "react";
 
 interface IProps {
   children: ReactNode;
+  defaultDate: Date;
 }
 
-export default function DateContextProvider({ children }: IProps) {
-  const [currentDate, setCurrentDate] = useState<Date>(new Date());
+export default function DateContextProvider({ children, defaultDate }: IProps) {
+  const [currentDate, setCurrentDate] = useState<Date>(defaultDate);
 
   const stateValue = { currentDate };
   const dispatchValue = { setCurrentDate };
