@@ -3,12 +3,12 @@
 import { reenieBeanie } from "@/utils/font";
 import Link from "next/link";
 import { useState } from "react";
-import { IoSettingsOutline, IoSettings } from "react-icons/io5";
+import { IoSettingsOutline as _, IoSettings } from "react-icons/io5";
 
 interface IProps {}
 
 export default function Header({}: IProps) {
-  const [hover, setHover] = useState<boolean>(false);
+  const [_hover, setHover] = useState<boolean>(false);
   const handleMouseEnter = () => setHover(true);
   const handleMouseLeave = () => setHover(false);
 
@@ -25,9 +25,12 @@ export default function Header({}: IProps) {
       <button
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        className="absolute top-0 right-0 w-12 h-12 flex justify-center items-center text-xl"
+        className="absolute top-0 right-0 w-12 h-12 flex justify-center items-center text-xl text-gray-300"
+        disabled
       >
-        {hover ? <IoSettings /> : <IoSettingsOutline />}
+        <IoSettings />
+        {/* TODO: Delete all diaries */}
+        {/* {hover ? <IoSettings /> : <IoSettingsOutline />} */}
       </button>
     </header>
   );
