@@ -1,26 +1,22 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { BiEditAlt, BiTrash } from "react-icons/bi";
+import { useRecoilValue, useResetRecoilState } from "recoil";
+import moment from "moment";
 import { useDateState } from "@/hooks/useDate";
 import { diarySelector } from "@/store/diary";
-import { getKeyByDate } from "@/utils/getKeyByDate";
-import { useRecoilValue, useResetRecoilState } from "recoil";
-import NoDiary from "./NoDiary";
-import { useEffect, useState } from "react";
 import { Diary } from "@/types/diary";
-import moment from "moment";
-import { BiEditAlt, BiTrash } from "react-icons/bi";
+import NoDiary from "./NoDiary";
 import ToolButton from "./ToolButton";
-import { useRouter } from "next/navigation";
 
-interface IProps {}
-
-export default function DiaryContent({}: IProps) {
+export default function DiaryContent(): JSX.Element {
   const router = useRouter();
-  const { currentDate } = useDateState();
-  const diary = useRecoilValue<Diary>(diarySelector(getKeyByDate(currentDate)));
-  const deleteDiary = useResetRecoilState(
-    diarySelector(getKeyByDate(currentDate))
-  );
+
+  const { currentKey } = useDateState();
+  const diary = useRecoilValue<Diary>(diarySelector(currentKey));
+  const deleteDiary = useResetRecoilState(diarySelector(currentKey));
 
   const [isLoading, setLoading] = useState<boolean>(true);
 
@@ -29,7 +25,7 @@ export default function DiaryContent({}: IProps) {
   }, []);
 
   const handleEdit = () => {
-    router.push(`/write?key=${getKeyByDate(currentDate)}`);
+    router.push("/write");
   };
 
   const handleDelete = () => {

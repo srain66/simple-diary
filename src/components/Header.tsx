@@ -7,7 +7,7 @@ import { IoSettingsOutline as _, IoSettings } from "react-icons/io5";
 
 interface IProps {}
 
-export default function Header({}: IProps) {
+export default function Header({}: IProps): JSX.Element {
   const [_hover, setHover] = useState<boolean>(false);
   const handleMouseEnter = () => setHover(true);
   const handleMouseLeave = () => setHover(false);

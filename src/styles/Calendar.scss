@@ -1,15 +1,3 @@
-@mixin righteous {
-  font-family: "Righteous", cursive;
-}
-
-@mixin karla {
-  font-family: "Karla", sans-serif;
-}
-
-.react-datepicker__month-container {
-  @include karla;
-}
-
 .react-datepicker__day-names,
 .react-datepicker__week {
   width: 100%;
@@ -26,7 +14,6 @@
 
 .react-datepicker__day-name,
 .react-datepicker__day {
-  @include righteous;
   width: 2rem;
   display: flex;
   justify-content: center;

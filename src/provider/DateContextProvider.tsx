@@ -1,17 +1,21 @@
 "use client";
 
 import { DateDispatchContext, DateStateContext } from "@/contexts/dateContext";
-import { ReactNode, useState } from "react";
+import { getKeyByDate } from "@/utils/getKeyByDate";
+import { ReactNode, useEffect, useMemo, useState } from "react";
 
 interface IProps {
-  children: ReactNode;
-  defaultDate: Date;
+  children?: ReactNode;
 }
 
-export default function DateContextProvider({ children, defaultDate }: IProps) {
-  const [currentDate, setCurrentDate] = useState<Date>(defaultDate);
+export default function DateContextProvider({ children }: IProps) {
+  const [currentDate, setCurrentDate] = useState<Date>(new Date());
+  const currentKey = useMemo<string>(
+    () => getKeyByDate(currentDate),
+    [currentDate]
+  );
 
-  const stateValue = { currentDate };
+  const stateValue = { currentDate, currentKey };
   const dispatchValue = { setCurrentDate };
 
   return (
