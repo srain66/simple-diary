@@ -7,7 +7,6 @@ import { useSetRecoilState } from "recoil";
 import { diarySelector } from "@/store/diary";
 import cls from "classnames";
 import { righteous } from "@/utils/font";
-import usePreventLeave from "@/hooks/usePreventLeave";
 
 interface IProps {
   diary: Diary;
