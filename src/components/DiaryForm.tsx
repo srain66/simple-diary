@@ -7,12 +7,13 @@ import { useSetRecoilState } from "recoil";
 import { diarySelector } from "@/store/diary";
 import cls from "classnames";
 import { righteous } from "@/utils/font";
+import usePreventLeave from "@/hooks/usePreventLeave";
 
 interface IProps {
   diary: Diary;
 }
 
-export default function DiaryForm({ diary }: IProps) {
+export default function DiaryForm({ diary }: IProps): JSX.Element {
   const router = useRouter();
   const [text, setText] = useState<string>(diary.text);
   const setDiary = useSetRecoilState(diarySelector(diary.key));
@@ -27,7 +28,7 @@ export default function DiaryForm({ diary }: IProps) {
     };
 
     setDiary(newDiary);
-    router.push(`/?key=${diary.key}`);
+    router.push("/");
   };
 
   useEffect(() => {
@@ -51,7 +52,7 @@ export default function DiaryForm({ diary }: IProps) {
       </div>
       <textarea
         className="w-full p-2 border border-gray-300 resize-none rounded"
-        style={{ minHeight: "calc(100vh - 10rem)" }}
+        style={{ minHeight: "80vh" }}
         placeholder="무슨 일이 있었나요?"
         autoComplete="off"
         autoFocus

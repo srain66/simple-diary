@@ -1,8 +1,7 @@
-import { righteous } from "@/utils/font";
 import moment from "moment";
-import { ButtonHTMLAttributes } from "react";
 import { ReactDatePickerCustomHeaderProps } from "react-datepicker";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
+import ArrowButton from "./ArrowButton";
 
 export default function CalendarHeader({
   date,
@@ -10,11 +9,9 @@ export default function CalendarHeader({
   increaseMonth,
   prevMonthButtonDisabled,
   nextMonthButtonDisabled,
-}: ReactDatePickerCustomHeaderProps) {
+}: ReactDatePickerCustomHeaderProps): JSX.Element {
   return (
-    <div
-      className={`${righteous.className} py-4 px-8 flex flex-col items-center`}
-    >
+    <div className="py-4 px-8 flex flex-col items-center">
       <div className="text-4xl">{moment(date).format("YYYY")}</div>
       <div className="flex gap-4 justify-center items-center">
         <ArrowButton onClick={decreaseMonth} disabled={prevMonthButtonDisabled}>
@@ -30,19 +27,3 @@ export default function CalendarHeader({
     </div>
   );
 }
-
-const ArrowButton = ({
-  children,
-  disabled,
-  ...props
-}: ButtonHTMLAttributes<HTMLButtonElement>): JSX.Element => {
-  return (
-    <button
-      className="w-12 h-8 p-2 flex justify-center items-center rounded hover:bg-gray-100"
-      disabled={disabled}
-      {...props}
-    >
-      {children}
-    </button>
-  );
-};

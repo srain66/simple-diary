@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&family=Karla:wght@400;500;700&family=Reenie+Beanie&family=Righteous&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,22 +7,20 @@
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-rgb: 255, 255, 255;
-
-  --body-rgb: 251, 251, 251;
+  --off-background-rgb: 251, 251, 251;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-rgb: 0, 0, 0;
-
-    --body-rgb: 4, 4, 4;
+    --off-background-rgb: 4, 4, 4;
   }
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: rgb(var(--body-rgb));
+  background: rgb(var(--off-background-rgb));
 }
 
 main {

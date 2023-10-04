@@ -1,17 +1,14 @@
 "use client";
 
-import moment from "moment";
+import { useRecoilValue } from "recoil";
 import DiaryForm from "@/components/DiaryForm";
+import { useDateState } from "@/hooks/useDate";
 import { diarySelector } from "@/store/diary";
 import { Diary } from "@/types/diary";
-import { getDateByKey } from "@/utils/getKeyByDate";
-import { useSearchParams } from "next/navigation";
-import { useRecoilValue } from "recoil";
 
-export default function Write() {
-  const searchParams = useSearchParams();
-  const key = searchParams.get("key") ?? moment(new Date()).format("YYYYMMDD");
-  const savedDiary = useRecoilValue(diarySelector(key));
+export default function Write(): JSX.Element {
+  const { currentDate, currentKey } = useDateState();
+  const savedDiary = useRecoilValue(diarySelector(currentKey));
 
   return (
     <div className="p-4">
@@ -19,9 +16,9 @@ export default function Write() {
         diary={
           savedDiary ??
           ({
-            key,
+            key: currentKey,
             text: "",
-            date: getDateByKey(key),
+            date: currentDate,
           } as Diary)
         }
       />

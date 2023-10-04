@@ -4,9 +4,7 @@ import { useDateState } from "@/hooks/useDate";
 import WriteButton from "./WriteButton";
 import moment from "moment";
 
-interface IProps {}
-
-export default function NoDiary({}: IProps) {
+export default function NoDiary(): JSX.Element {
   const { currentDate } = useDateState();
 
   return (
