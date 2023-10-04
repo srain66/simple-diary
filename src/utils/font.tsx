@@ -1,11 +1,6 @@
-import {
-  IBM_Plex_Sans_KR,
-  Karla,
-  Reenie_Beanie,
-  Righteous,
-} from "next/font/google";
+import { Hahmlet, Karla, Reenie_Beanie, Righteous } from "next/font/google";
 
-export const ibmPlexSansKr = IBM_Plex_Sans_KR({
+export const hahmlet = Hahmlet({
   weight: ["400", "500", "700"],
   subsets: ["latin"],
 });

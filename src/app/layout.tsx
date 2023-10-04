@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { ReactNode } from "react";
 import ContentLayout from "@/components/ContentLayout";
 import RootWrapper from "@/components/RootWrapper";
-import { ibmPlexSansKr } from "@/utils/font";
+import { hahmlet } from "@/utils/font";
 
 export const metadata: Metadata = {
   title: "Simple Diary",
@@ -18,7 +18,7 @@ interface IProps {
 export default function RootLayout({ children }: IProps): JSX.Element {
   return (
     <html lang="ko">
-      <body className={ibmPlexSansKr.className}>
+      <body className={hahmlet.className}>
         <RootWrapper>
           <ContentLayout>{children}</ContentLayout>
         </RootWrapper>
